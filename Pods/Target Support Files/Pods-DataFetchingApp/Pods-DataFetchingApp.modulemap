@@ -1,0 +1,6 @@
+framework module Pods_DataFetchingApp {
+  umbrella header "Pods-DataFetchingApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
