@@ -8,7 +8,8 @@
 
 import UIKit
 import Alamofire
-/*struct SampleData {
+import AlamofireImage
+/* class SampleData {
     var albumId : Int
     var id : Int
     var title : String
@@ -24,6 +25,8 @@ import Alamofire
     }
     
 } */
+var start = 0
+var limit = 10
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var emptyDict : [[String:Any]] = [[String:Any]]()
@@ -54,21 +57,29 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
         myView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         myView.delegate = self
         myView.dataSource = self
-         self.getRequestAPICall(url: "https://jsonplaceholder.typicode.com/photos")
+         self.getRequestAPICall(url: "https://jsonplaceholder.typicode.com/photos?_start=\(start)&_limit=\(limit)")
+        start = start+limit
 
 }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if(indexPath.row == emptyDict.count-1){
+            print(indexPath.row)
+        viewDidLoad()
+        }
+    }
     func getRequestAPICall(url: String)  {
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default)
             .responseJSON { response in
                 if let data = response.result.value as? [[String:Any]]{
                     //        your json converted into Dictonary
-                    print(data)
+                   // print(data)
             self.emptyDict.append(contentsOf: data)
             self.myView.reloadData()
                     
                                     }
                 
         }
+        
         
         
         
