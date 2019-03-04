@@ -46,7 +46,7 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
             if let thumbnailUrl = emptyDict[indexPath.row]["thumbnailUrl"] as? String
             {
                 Alamofire.request(thumbnailUrl).responseImage(completionHandler: { (response) in
-                    print(response)
+                   // print(response)
                     
                     //       Alamofire.request(<#T##url: URLConvertible##URLConvertible#>)
                     cell.tableImage.image = response.result.value
@@ -61,6 +61,18 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
         // below is the code to perform navigation without segue
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DescriptionView") as? DescriptionView
         self.navigationController?.pushViewController(vc!, animated: true)
+        vc?.title1 = emptyDict[indexPath.row]["title"] as! String
+        if let thumbnailUrl = emptyDict[indexPath.row]["thumbnailUrl"] as? String
+        {
+            Alamofire.request(thumbnailUrl).responseImage(completionHandler: { (response) in
+                // print(response)
+                
+                //       Alamofire.request(<#T##url: URLConvertible##URLConvertible#>)
+                vc?.dispcriptionImage.image = response.result.value
+               
+            }
+            )
+        }
         
         
     }

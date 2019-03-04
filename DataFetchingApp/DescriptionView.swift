@@ -17,10 +17,12 @@ class DescriptionView: UIViewController {
     @IBOutlet weak var idDisp: UILabel!
     
     @IBOutlet weak var titleDisp: UILabel!
+    var title1 = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+     titleDisp.text = title1
+        self.dispcriptionImage.image = dispcriptionImage.image
         // Do any additional setup after loading the view.
     }
     
