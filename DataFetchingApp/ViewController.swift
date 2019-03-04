@@ -42,6 +42,16 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
         if (emptyDict.count == 0) { print ("No data") }
         else {
             cell.title.text = emptyDict[indexPath.row]["title"] as! String
+            if let thumbnailUrl = emptyDict[indexPath.row]["thumbnailUrl"] as? String
+            {
+                Alamofire.request(thumbnailUrl).responseImage(completionHandler: { (response) in
+                    print(response)
+                    
+                    //       Alamofire.request(<#T##url: URLConvertible##URLConvertible#>)
+                    cell.tableImage.image = response.result.value
+                }
+                )
+            }
         }
         return cell
     }
