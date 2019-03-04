@@ -9,7 +9,15 @@
 import UIKit
 
 class DescriptionView: UIViewController {
-
+    
+    @IBOutlet weak var dispcriptionImage: UIImageView!
+    
+    @IBOutlet weak var albumIdDisp: UILabel!
+    
+    @IBOutlet weak var idDisp: UILabel!
+    
+    @IBOutlet weak var titleDisp: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,14 +25,6 @@ class DescriptionView: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

@@ -28,6 +28,7 @@ import AlamofireImage
 var start = 0
 var limit = 10
 
+
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var emptyDict : [[String:Any]] = [[String:Any]]()
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,6 +58,8 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "segue", sender: self)
+        
+        
     }
     
     @IBOutlet weak var myView: UITableView!
