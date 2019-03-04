@@ -62,9 +62,11 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DescriptionView") as? DescriptionView
         self.navigationController?.pushViewController(vc!, animated: true)
         vc?.title1 = emptyDict[indexPath.row]["title"] as! String
-        if let thumbnailUrl = emptyDict[indexPath.row]["thumbnailUrl"] as? String
+        vc?.albumId1 = emptyDict[indexPath.row]["albumId"] as! Int
+        vc?.id1 = emptyDict[indexPath.row]["id"] as! Int
+        if let url = emptyDict[indexPath.row]["url"] as? String
         {
-            Alamofire.request(thumbnailUrl).responseImage(completionHandler: { (response) in
+            Alamofire.request(url).responseImage(completionHandler: { (response) in
                 // print(response)
                 
                 //       Alamofire.request(<#T##url: URLConvertible##URLConvertible#>)
@@ -100,7 +102,7 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
             .responseJSON { response in
                 if let data = response.result.value as? [[String:Any]]{
                     //        your json converted into Dictonary
-                   // print(data)
+                   //print(data)
             self.emptyDict.append(contentsOf: data)
             self.myView.reloadData()
                     
