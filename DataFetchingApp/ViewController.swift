@@ -57,7 +57,10 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "segue", sender: self)
+       // performSegue(withIdentifier: "segue", sender: self)
+        // below is the code to perform navigation without segue
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DescriptionView") as? DescriptionView
+        self.navigationController?.pushViewController(vc!, animated: true)
         
         
     }
