@@ -1,8 +1,8 @@
 # dataFetchThroughApi
 - **Project**
-       Data Fetch Through API
+       : Data Fetch Through API
  - **Installation & Run**
-- Xcode application is installed in MacBook device.  A *Single view app* is made in project mode. Suitable *StoryBoard* and *Cocoa Touch Classes* are made.
+  : Xcode application is installed in MacBook device.  A *Single view app* is made in project mode. Suitable *StoryBoard* and *Cocoa Touch Classes* are made.
  - **Description** 
    The URL for API is given as ...
 ***url:-***  [https://jsonplaceholder.typicode.com/photosimage](https://jsonplaceholder.typicode.com/photosimage)
