@@ -55,6 +55,34 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A31830CE222D514A0063D82A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A327E0F6222A810200128EE4 /* LaunchScreen.storyboard */,
+				A327E0F1222A810100128EE4 /* Main.storyboard */,
+				A327E100222A81BF00128EE4 /* TableViewCell.xib */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		A31830CF222D518B0063D82A /* Swift files */ = {
+			isa = PBXGroup;
+			children = (
+				A327E0ED222A810100128EE4 /* AppDelegate.swift */,
+				A327E0EF222A810100128EE4 /* ViewController.swift */,
+				A327E0FF222A81BF00128EE4 /* TableViewCell.swift */,
+				A38DD3EC222A9E1C00EDF656 /* DescriptionView.swift */,
+			);
+			path = "Swift files";
+			sourceTree = "<group>";
+		};
+		A31830D0222D51E30063D82A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		A327E0E1222A810100128EE4 = {
 			isa = PBXGroup;
 			children = (
@@ -76,15 +104,11 @@
 		A327E0EC222A810100128EE4 /* DataFetchingApp */ = {
 			isa = PBXGroup;
 			children = (
-				A327E0ED222A810100128EE4 /* AppDelegate.swift */,
-				A327E0EF222A810100128EE4 /* ViewController.swift */,
-				A327E0FF222A81BF00128EE4 /* TableViewCell.swift */,
-				A327E100222A81BF00128EE4 /* TableViewCell.xib */,
-				A327E0F1222A810100128EE4 /* Main.storyboard */,
-				A327E0F4222A810200128EE4 /* Assets.xcassets */,
-				A327E0F6222A810200128EE4 /* LaunchScreen.storyboard */,
 				A327E0F9222A810200128EE4 /* Info.plist */,
-				A38DD3EC222A9E1C00EDF656 /* DescriptionView.swift */,
+				A327E0F4222A810200128EE4 /* Assets.xcassets */,
+				A31830D0222D51E30063D82A /* Application */,
+				A31830CF222D518B0063D82A /* Swift files */,
+				A31830CE222D514A0063D82A /* Storyboard */,
 			);
 			path = DataFetchingApp;
 			sourceTree = "<group>";
