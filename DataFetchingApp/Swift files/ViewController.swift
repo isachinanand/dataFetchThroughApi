@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import SVProgressHUD
 class SampleData {
     var albumId : Int
     var id : Int
@@ -22,7 +23,7 @@ class SampleData {
     {        id = values["id"] as? Int ?? -1
         albumId = values["albumId"] as? Int ?? -1
         title = values["title"] as? String ?? ""
-        url = values["url"] as? String ?? ""
+        self.url = values["url"] as? String ?? ""
         thumbnailURL = values["thumbnailUrl"] as? String ?? ""
     }
     
@@ -52,11 +53,16 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // performSegue(withIdentifier: "segue", sender: self)
         // below is the code to perform navigation without segue
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DescriptionView") as? DescriptionView
-        self.navigationController?.pushViewController(vc!, animated: true)
-        vc?.title1 = emptyDict[indexPath.row]["title"] as! String
-        vc?.albumId1 = emptyDict[indexPath.row]["albumId"] as! Int
-        vc?.id1 = emptyDict[indexPath.row]["id"] as! Int
+        self.downloadImage(forObject: sampleData[indexPath.row]) { (result) -> (Void) in
+            print("Image downloaded")
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DescriptionView") as? DescriptionView
+            vc?.title1 = self.sampleData[indexPath.row].title
+            vc?.albumId1 = self.sampleData[indexPath.row].albumId
+            vc?.id1 = self.sampleData[indexPath.row].id
+            vc?.image1 = self.sampleData[indexPath.row].image
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        
         
         
         
@@ -106,16 +112,23 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         
     }
-    func downloadImage(forObject:SampleData){
+    func downloadImage(forObject:SampleData,handler: @escaping ((Bool)->(Void)) ){
         if forObject.image == nil{
             Alamofire.request(forObject.url).responseImage(completionHandler: { (response) in
                 forObject.image = response.result.value
+                forObject.image == nil ? handler(false) : handler(true)
+                SVProgressHUD.dismiss()
             })
+                .downloadProgress { (progress) in
+                    let per = (Double(progress.completedUnitCount)/Double(progress.totalUnitCount))*100
+                    SVProgressHUD.showProgress(Float(per))
+            }
         }
     }
     func downloadThumbNail(forObject:SampleData){
         if forObject.thumbnail == nil{
             Alamofire.request(forObject.thumbnailURL).responseImage(completionHandler: { (response) in
+                
                 forObject.thumbnail = response.result.value
                 print("image download for",forObject.id)
                 let row = self.sampleData.firstIndex(where: { (obj) -> Bool in

@@ -8,5 +8,5 @@ target 'DataFetchingApp' do
   # Pods for DataFetchingApp
     pod 'Alamofire', '~> 4.0'
     pod 'AlamofireImage'
-
+    pod 'SVProgressHUD'
 end
