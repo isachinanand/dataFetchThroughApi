@@ -1,13 +1,13 @@
 # dataFetchThroughApi
 - **Project**
-      - Data Fetch Through API
+       Data Fetch Through API
  - **Installation & Run**
 - Xcode application is installed in MacBook device.  A *Single view app* is made in project mode. Suitable *StoryBoard* and *Cocoa Touch Classes* are made.
  - **Description** 
- - The URL for API is given as ...
+   The URL for API is given as ...
 ***url:-***  [https://jsonplaceholder.typicode.com/photosimage](https://jsonplaceholder.typicode.com/photosimage)
 
-- A tabular view is made which load 10 content at a time and further next 10 as the view hit the last row.
+  A tabular view is made which load 10 content at a time and further next 10 as the view hit the last row.
  Each row initially contains -
    
 
@@ -31,7 +31,7 @@ A back button is put as a part of the navigation controller. This can be done by
 
  - **Pull**
 
-  - Welcome to all *Pull* request.
+    Welcome to all *Pull* request.
 
 **
 
