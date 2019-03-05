@@ -4,7 +4,7 @@
  - **Installation & Run**
 - Xcode application is installed in MacBook device.  A *Single view app* is made in project mode. Suitable *StoryBoard* and *Cocoa Touch Classes* are made.
  - **Description** 
- - The URL for API is given below
+ - The URL for API is given as ...
 ***url:-***  [https://jsonplaceholder.typicode.com/photosimage](https://jsonplaceholder.typicode.com/photosimage)
 
 - A tabular view is made which load 10 content at a time and further next 10 as the view hit the last row.
